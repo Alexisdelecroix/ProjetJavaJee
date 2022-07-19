@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.dao.ProduitRepository;
 import com.example.demo.entities.Produit;
@@ -19,14 +20,19 @@ public class ProduitController {
 	private ProduitRepository produitRepository;
 
 @RequestMapping(value="/index")
+public String index(Model model,
+		@RequestParam(name="page", defaultValue="0")int p,
+		@RequestParam(name="size", defaultValue="10")int s){
+	Pageable pageable = PageRequest.of(p,s);
 
-public String index(Model model) {
-	Pageable pageable = PageRequest.of(0, 10);
-   
 	Page<Produit> produits = produitRepository.findAll(pageable);
 	model.addAttribute("listProduits",produits.getContent());
-	
+
+	Page<Produit> pageProduits = null;
+	int[] pages=new int[pageProduits.getTotalPages()];
+	model.addAttribute("pages",pages);
 	return "produits";
+
 }
 	
 		

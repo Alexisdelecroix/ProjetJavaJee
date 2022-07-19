@@ -3,10 +3,14 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Produits</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" 
+integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" 
+crossorigin="anonymous">
 </head>
 <body>
-	<h3>Test</h3>
-	<table border="1">
+<div class="container">
+	<h3>Liste des produits</h3>
+	<table class="table">
 	<thead>
 	<tr>
 	<th>ID</th>
@@ -24,5 +28,11 @@
 	</tr>
 	</tbody>
 	</table>
+	</div>
+	<div>
+	<ul>
+	<li th:each="pa:${pages}">${pa}</li>
+	</ul>
+	</div>
 </body>
 </html>
