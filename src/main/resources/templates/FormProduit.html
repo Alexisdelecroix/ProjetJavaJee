@@ -12,6 +12,26 @@
 <div class="panel panel-default">
 <div class="panel-heading">Saisie d'un produit</div>
 <div class="panel-body">
+<form th:action="@{save}" method="post">
+<div class="form-group">
+<label class="control-label"> Désignation:</label>
+<input class="form-control" type="text" name="designation" 
+th:value="${produit.designation}"/>
+</div>
+<div class="form-group">
+<label class="control-label"> Prix:</label>
+<input class="form-control" type="text" name="prix" 
+th:value="${produit.prix}">
+</div>
+<div class="form-group">
+<label class="control-label"> Quantité:</label>
+<input class="form-control" type="text" name="quantite" 
+th:value="${produit.quantite}">
+</div>
+<div>
+<button type="submit" class="btn btn-primary">save</button>
+</div>
+</form>
 </div>
 </div>
 </div>
