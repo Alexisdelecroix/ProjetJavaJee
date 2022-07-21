@@ -1,5 +1,7 @@
 package com.example.demo.web;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +51,13 @@ public class ProduitController {
 		return "FormProduit";
 	}
 	
-	@RequestMapping(value="/edit",method=RequestMethod.GET)
-	public String edit(Model model,Long id) {
-		Produit p=produitRepository.findOne(id);
-		model.addAttribute("produit",p);
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public String edit(Model model, Long id) {
+		Optional<Produit> p = produitRepository.findById(id);
+		if (p.isPresent()) {
+			Produit produit = p.get();
+			model.addAttribute("produit", produit);
+		}
 		return "EditProduit";
 	}
 	
