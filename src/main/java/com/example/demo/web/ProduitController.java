@@ -71,6 +71,15 @@ public class ProduitController {
 		return "Confirmation";
 	}
 		
+	@RequestMapping(value="/")
+	public String home() {
+		return "redirect:/index";
+	}
+	
+	@RequestMapping(value="/403")
+	public String accessDneied() {
+		return "403";
+	}
 }
 	
 		
