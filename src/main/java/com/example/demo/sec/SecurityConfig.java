@@ -39,7 +39,7 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 @Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.formLogin();
+		http.formLogin().loginPage("/login");
 		http.authorizeRequests().antMatchers("/user/*").hasRole("USER");
 		http.authorizeRequests().antMatchers("/admin/*").hasRole("ADMIN");
 		http.exceptionHandling().accessDeniedPage("/403");

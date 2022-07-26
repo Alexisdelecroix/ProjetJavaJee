@@ -80,6 +80,11 @@ public class ProduitController {
 	public String accessDneied() {
 		return "403";
 	}
+	
+	@RequestMapping(value="/login")
+	public String login() {
+		return "login";
+	}
 }
 	
 		
